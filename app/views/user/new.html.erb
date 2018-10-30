@@ -1,0 +1,67 @@
+<div class="back"><center><font face="Luminari" color="#2F4F4F"><h1>Inscription </h1>
+<br></br><div class="top">
+<b>formulaire html</b><br></br></div>
+<div class="stily">
+<form action="/" method="POST">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<div class="form-group"> ton nom ?
+  <input type="text" name="username" class="form-control" placeholder="nom(obligatoire)">
+</div>
+
+<div class="form-group">
+  ton email ?
+  <input type="text" name="email" class="form-control" placeholder="emai(obligatoire)">
+</div>
+<div class="form-group">
+  ta bio ?
+  <input type="text" name="bio" class="form-control" placeholder="bio">
+</div>
+
+  <input type="submit" value="Envoyer le formulaire" class="btn btn-primary">
+</form></div>
+
+</br>
+<br></br><div class="top">
+<b>formulaire tag</b><br></br></div>
+<html>
+  <body><div class="stily"><form>
+  <div class="form-group">
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+	  <%= label_tag 'Ton prenom' %>
+      <%= text_field_tag ':username', "", class:"form-control", placeholder:"prenom(obligatoire)" %>
+      </div>
+      <div class="form-group">
+      <%= label_tag 'Ton email' %>
+      <%= text_field_tag ':email', "", class:"form-control", placeholder:"email(obligatoire)" %>
+ 	   </div>
+      <div class="form-group">
+      <%= label_tag 'Ta bio' %>
+      <%= text_field_tag ':bio', "", class:"form-control", placeholder:"bio" %>
+  	  </div>
+      <%= submit_tag "Creer l'user", class:"btn btn-primary" %>
+    <% end %>
+	</div>
+  </body>
+</html>
+
+<br></br><div class="top">
+<b>formulaire for</b><br></br></div>
+<div class="stily">
+<%= form_for @user, url: {action: "create"} do |person_form| %>
+
+<div class="form-group">
+  <%= person_form.label 'Saisis ton nom' %>
+  <%= person_form.text_field :username, class:"form-control", placeholder:"prenom(obligatoire)" %>
+    </div>
+ <div class="form-group">
+    <%= person_form.label 'Saisis ton mail' %>
+  <%= person_form.text_field :email, class:"form-control", placeholder:"email(obligatoire)" %>
+  </div>
+  <div class="form-group"><
+    <%= person_form.label 'Saisis ta bio' %>
+  <%= person_form.text_field :bio, class:"form-control", placeholder:"bio" %>
+</div>
+    <%= person_form.submit 'Envoyer', class:"btn btn-primary" %> 
+  <% end %>
+</font>
+</center></div>
